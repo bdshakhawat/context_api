@@ -1,32 +1,63 @@
-// ---------------  Tutorial-17  (Context API Pattern-3) Starts ------------------
-import React from 'react';
-import ClickCounter from './components/ClickCounter';
-import Counter from './components/Counter';
-import Section from './components/Section';
-import ThemeContext from './contexts/themeContext'
-
+// ---------------  Tutorial-19  (React Hooks-useState) Starts ------------------
+import React from "react";
+import Todo from './components/TodoClass';
 
 export default class App extends React.Component{
-    state={
-        theme:'light',
-        // Value from state then ThemeContextProvider will not render. This is the best 
-        // practice to avoid unnecessary render of component.
-        switchTheme:()=>{
-            this.setState(({theme})=>{
-                if (theme==='dark'){
-                    return{
-                        theme:'light',
-                    };
-                }
-                return{
-                    theme:'dark'
-                };
-            });
+    render(){
+        return(
+            <div className="app">
+                <Todo/>
+            </div>
+        );
+    }
+}
+
+
+
+
+
+
+// ---------------  Tutorial-19  (React Hooks-useState) Starts ------------------
+
+
+
+
+
+
+
+
+
+
+
+// ---------------  Tutorial-17  (Context API Pattern-3) Starts ------------------
+// import React from 'react';
+// import ClickCounter from './components/ClickCounter';
+// import Counter from './components/Counter';
+// import Section from './components/Section';
+// import ThemeContext from './contexts/themeContext'
+
+
+// export default class App extends React.Component{
+//     state={
+//         theme:'light',
+//         // Value from state then ThemeContextProvider will not render. This is the best 
+//         // practice to avoid unnecessary render of component.
+//         switchTheme:()=>{
+//             this.setState(({theme})=>{
+//                 if (theme==='dark'){
+//                     return{
+//                         theme:'light',
+//                     };
+//                 }
+//                 return{
+//                     theme:'dark'
+//                 };
+//             });
 
             
-        }
+//         }
 
-    };
+//     };
     // Value from outside the state as a object then with the App render ThemeContextProvider
     // will also render.
     // switchTheme=()=>{
@@ -46,31 +77,31 @@ export default class App extends React.Component{
         // state and convert it to light or dark. if present state is dark then make it light
         // but if the present state is light then make it dark.
 
-    render(){
-        // const {theme}=this.state;
-        return(
-            <div className='app'>
-                <Counter>
-                    {(counter, incrementCount)=>(
-                        <ClickCounter count={counter} incrementCount={incrementCount}/>
-                    )
+//     render(){
+//         // const {theme}=this.state;
+//         return(
+//             <div className='app'>
+//                 <Counter>
+//                     {(counter, incrementCount)=>(
+//                         <ClickCounter count={counter} incrementCount={incrementCount}/>
+//                     )
 
-                    }
-                </Counter>
-                {/* use value as state value */}
-                <ThemeContext.Provider value={this.state}>
-                    <Section/>
+//                     }
+//                 </Counter>
+//                 {/* use value as state value */}
+//                 <ThemeContext.Provider value={this.state}>
+//                     <Section/>
 
-                </ThemeContext.Provider>
-                {/* Use value as object */}
-                {/* <ThemeContext.Provider value={{theme:theme,switchTheme:this.switchTheme}}>
-                    <Section />
-                </ThemeContext.Provider> */}
+//                 </ThemeContext.Provider>
+//                 {/* Use value as object */}
+//                 {/* <ThemeContext.Provider value={{theme:theme,switchTheme:this.switchTheme}}>
+//                     <Section />
+//                 </ThemeContext.Provider> */}
                 
-            </div>
-        )
-    }
-}
+//             </div>
+//         )
+//     }
+// }
 
 
 // ---------------  Tutorial-17  (Context API Pattern-3) Ends ------------------
